@@ -929,9 +929,9 @@ def main():
             authentication = 'SIMPLE'
         else:
             authentication = NTLM
-        if not '\\' in args.user:
-            log_warn('Username must include a domain, use: DOMAIN\\username')
-            sys.exit(1)
+            if not '\\' in args.user:
+                log_warn('Username must include a domain, use: DOMAIN\\username')
+                sys.exit(1)
         if args.password is None:
             args.password = getpass.getpass()
     else:
